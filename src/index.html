@@ -1,37 +1,35 @@
 <!doctype HTML>
 <html lang="en">
 <head>
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <title>abc</title><meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 
     <ul id="navigasjon">
-        <li><a href="index.html">Introduksjon</a></li>
-        <li><a href="index.html">Oversikt</a></li>
-        <li><a href="index.html">Detaljer</a></li>
-        <li><a href="index.html">Sammenligning</a></li>
+        <li><button onclick="displayBlock('introduksjon')">Introduksjon</button></li>
+        <li><button onclick="displayBlock('oversikt')">Oversikt</button></li>
+        <li><button onclick="displayBlock('detaljer')">Detaljer</button></li>
+        <li><button onclick="displayBlock('sammenligning')">Sammenligning</button></li>
     </ul>
 </head>
 <body>
-    <p name="introduksjon">
+    
+    <p id="introduksjon" hidden>
         hei
     </p>
-    <p name="oversikt" hidden>
+    <p id="oversikt" hidden>
         heihei
     </p>
-    <p name="detaljer" hidden>
+    <p id="detaljer" hidden>
         heiheihei
     </p>
-    <p name="sammenligning" hidden>
+    <p id="sammenligning" hidden>
         heiheiheihei
     </p>
 
     <footer>
      <p>Dette er en oppgave i INFO134</p>
     </footer>
-
-    <script>
-        document.getElementByName("oversikt").classList.remove("hidden");
-    </script>
+    
 </body>
 </html>
