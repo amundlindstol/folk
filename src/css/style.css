@@ -25,3 +25,13 @@ li a:hover {
 .active {
   background-color: #4CAF50;
 }
+
+footer {
+  display: block;
+  color: white;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: #333;
+}
