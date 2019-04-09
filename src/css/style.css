@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+}
+
+
 #navigasjon {
   list-style-type: none;
   margin: 0;
