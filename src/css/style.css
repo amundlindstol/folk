@@ -8,7 +8,13 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  color: white;
   background-color: #333;
+}
+
+#logo {
+  height: 20px;
+  width: 20px;
 }
 
 li {
@@ -18,25 +24,32 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: inherit;
+  background-color: inherit;
   text-align: center;
   padding: 14px 6px;
   text-decoration: none;
-  font-size: 3vw
+  font-size: 3vw;
   cursor: inherit;
 }
 
 li a:hover {
+  color: inherit;
   background-color: #111;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 740px) {
   li a {
-     font-size: 14px;
+     font-size: 16px;
+  }
+
+  footer p {
+    font-size: 16px;
   }
 }
 
 .active {
+  color: inherit;
   background-color: #4CAF50;
 }
 
@@ -44,9 +57,11 @@ footer {
   display: block;
   color: white;
   text-align: center;
+  font-size: 3vw;
   position: fixed;
   width: 100%;
   bottom: 0;
+  text-decoration-color: white;
   background-color: #333;
 }
 
