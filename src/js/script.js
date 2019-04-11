@@ -17,9 +17,9 @@ https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
 blockList = ["introduksjon", "oversikt", "detaljer", "sammenligning"]
 const displayBlock = (block) => {
     blockList = blockList.map(a => {
-        document.getElementById(a).classList.add("hidden");
         console.log(document.getElementById(a));
+        document.getElementById(a).classList.add("hidden");
+
     });
     document.getElementById(block).classList.remove("hidden");
 }
-

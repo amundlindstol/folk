@@ -8,22 +8,24 @@
 <body>
     <header>
       <ul id="navigasjon">
-          <li><button onclick="displayBlock('introduksjon')">Introduksjon</button></li>
-          <li><button onclick="displayBlock('oversikt')">Oversikt</button></li>
-          <li><button onclick="displayBlock('detaljer')">Detaljer</button></li>
-          <li><button onclick="displayBlock('sammenligning')">Sammenligning</button></li>
+          <li onclick="displayBlock('introduksjon')"><a>Introduksjon</a></li>
+          <li onclick="displayBlock('oversikt')"><a>Oversikt</a></li>
+          <li onclick="displayBlock('detaljer')"><a>Detaljer</a></li>
+          <li onclick="displayBlock('sammenligning')"><a>Sammenligning</a></li>
       </ul>
     </header>
-
     <div id="introduksjon" hidden>
         <p>Introduksjon</p>
     </div>
+
     <div id="oversikt" hidden>
         <p>Oversikt</p>
     </div>
+
     <div id="detaljer" hidden>
         <p>detaljer</p>
     </div>
+
     <div id="sammenligning" hidden>
         <p>sammenligning</p>
     </div>
