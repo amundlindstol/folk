@@ -1,35 +1,36 @@
 <!doctype HTML>
 <html lang="en">
 <head>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <title>abc</title><meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-
-    <ul id="navigasjon">
-        <li><button onclick="displayBlock('introduksjon')">Introduksjon</button></li>
-        <li><button onclick="displayBlock('oversikt')">Oversikt</button></li>
-        <li><button onclick="displayBlock('detaljer')">Detaljer</button></li>
-        <li><button onclick="displayBlock('sammenligning')">Sammenligning</button></li>
-    </ul>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
 </head>
 <body>
-    
-    <p id="introduksjon" hidden>
-        hei
-    </p>
-    <p id="oversikt" hidden>
-        heihei
-    </p>
-    <p id="detaljer" hidden>
-        heiheihei
-    </p>
-    <p id="sammenligning" hidden>
-        heiheiheihei
-    </p>
+    <header>
+      <ul id="navigasjon">
+          <li><button onclick="displayBlock('introduksjon')">Introduksjon</button></li>
+          <li><button onclick="displayBlock('oversikt')">Oversikt</button></li>
+          <li><button onclick="displayBlock('detaljer')">Detaljer</button></li>
+          <li><button onclick="displayBlock('sammenligning')">Sammenligning</button></li>
+      </ul>
+    </header>
+
+    <div id="introduksjon" hidden>
+        <p>Introduksjon</p>
+    </div>
+    <div id="oversikt" hidden>
+        <p>Oversikt</p>
+    </div>
+    <div id="detaljer" hidden>
+        <p>detaljer</p>
+    </div>
+    <div id="sammenligning" hidden>
+        <p>sammenligning</p>
+    </div>
 
     <footer>
      <p>Dette er en oppgave i INFO134</p>
     </footer>
-    
+
 </body>
 </html>
