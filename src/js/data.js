@@ -5,8 +5,10 @@
  * Utdanning http://wildboy.uib.no/~tpe056/folk/85432.json
  * 
  * 
- * For å aksessere riktig objekt:
+ * For å aksessere riktig objekt (kan kanskje være nyttig, dunno)
  * https://stackoverflow.com/questions/41619319/using-wildcards-when-accessing-a-multi-dimensional-object-in-javascript
+ * https://hackernoon.com/accessing-nested-objects-in-javascript-f02f1bd6387f
+ * https://javascript.info/keys-values-entries
  */
 
 class Data {
@@ -30,7 +32,6 @@ class Data {
      * @return numbers
      */
     getIDs(){}
-
     /**
      * Returnerer informasjon om en kommune basert på aktuelt datasett og gitt kommuneNr
      * 
