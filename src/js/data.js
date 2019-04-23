@@ -14,6 +14,7 @@
 class Data {
     constructor(url){
         this.url = url;
+        this.accessData();
     }
 
     accessData(){
@@ -47,6 +48,9 @@ class Data {
                 console.log(status);
             }
         });
-        return obj.data;
+    }
+
+    getData(){
+        return this.data;
     }
 }

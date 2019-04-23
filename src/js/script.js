@@ -6,6 +6,11 @@ const sysselsatte = new Data("http://wildboy.uib.no/~tpe056/folk/100145.json");
 const befolkning = new Data("http://wildboy.uib.no/~tpe056/folk/104857.json");
 
 
+console.log(utdanning);
+console.log(sysselsatte);
+console.log(befolkning);
+
+
 function displayBlock(block) {
     var blocks = document.getElementsByClassName("innhold");
     for(i = 0; i < blocks.length; i++){
