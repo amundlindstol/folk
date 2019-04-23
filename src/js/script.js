@@ -1,31 +1,10 @@
-/**
-skjule/vise elementer vha klasser
+//loadinganimation
 
-//CSS
-.hidden{
-    display:none;
-}
+//Load JSON from url into js objects
+const utdanning = new Data("http://wildboy.uib.no/~tpe056/folk/85432.json");
+const sysselsatte = new Data("http://wildboy.uib.no/~tpe056/folk/100145.json"); 
+const befolkning = new Data("http://wildboy.uib.no/~tpe056/folk/104857.json");
 
-//JS
-element.classList.add("hidden");
-element.classList.remove("hidden");
-
-//demo
-https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
-
-
-blockList = ["introduksjon", "oversikt", "detaljer", "sammenligning"]
-const displayBlock = (block) => {
-    blockList = blockList.map(a => {
-        console.log(document.getElementById(a));
-        document.getElementById(a).classList.add("hidden");
-
-    });
-    document.getElementById(block).classList.remove("hidden");
-}
-**/
-
-// Navigation
 
 function displayBlock(block) {
     var blocks = document.getElementsByClassName("innhold");
@@ -34,3 +13,5 @@ function displayBlock(block) {
     } 
     document.getElementById(block).style.display = "block";    
 }
+
+//undo loadinganimation
