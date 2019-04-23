@@ -26,17 +26,6 @@ const displayBlock = (block) => {
 **/
 
 // Navigation
-/**
-var content = document.getElementById("innhold");
-
-function displayBlock(block) {
-    var blocks = content.getElementsByTagName("div");
-    for(i = 0; i < blocks.length; i++){
-        blocks.item(i).style.display = "none";
-    } 
-    document.getElementById(block).style.display = "block";    
-}
- */
 
 function displayBlock(block) {
     var blocks = document.getElementsByClassName("innhold");
