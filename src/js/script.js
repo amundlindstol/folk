@@ -19,4 +19,4 @@ function displayBlock(block) {
     document.getElementById(block).style.display = "block";    
 }
 
-//undo loadinganimation
+//document.getElementById("loading").style.display = "none";
