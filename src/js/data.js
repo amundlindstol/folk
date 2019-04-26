@@ -14,12 +14,11 @@
 class Data {
     constructor(url){
         this.url = url;
-        this.accessData();
     }
 
     accessData(){
         var obj = this;
-        //Henter datasettet fra nettsiden og omdanner dette til et objekt
+        
         var fetchAndConvert = function(url, callback) { 
            var req = new XMLHttpRequest();
             req.open("GET", url);
@@ -39,18 +38,12 @@ class Data {
             if(status !== null){
                 var data = JSON.parse(rawData);
                 obj.data = data;
-                console.log(data);
-
-                //Test
-                console.log(data.elementer.Flora);
+                //console.log(data);
             }
             else{
-                console.log(status);
+                //console.log(status);
             }
         });
-    }
-
-    getData(){
-        return this.data;
+        return obj;
     }
 }

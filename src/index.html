@@ -9,17 +9,14 @@
     <header>
       <ul id="navigasjon">
           <li><img id="logo" src="img/id-logo.svg" alt="logo"/></li>
-          <li onclick="displayBlock('introduksjon')"><a>Introduksjon</a></li>
-          <li onclick="displayBlock('oversikt')"><a>Oversikt</a></li>
-          <li onclick="displayBlock('detaljer')"><a>Detaljer</a></li>
-          <li onclick="displayBlock('sammenligning')"><a>Sammenligning</a></li>
+          <li onclick="display('introduksjon')"><a>Introduksjon</a></li>
+          <li onclick="display('oversikt')"><a>Oversikt</a></li>
+          <li onclick="display('detaljer')"><a>Detaljer</a></li>
+          <li onclick="display('sammenligning')"><a>Sammenligning</a></li>
       </ul>
     </header>
 
-    <div id="loading" hidden>
-        <img src="https://media1.tenor.com/images/a6a6686cbddb3e99a5f0b60a829effb3/tenor.gif?itemid=7427055"> 
-    </div>
-
+    <!-- Introduksjon -->
     <div id="introduksjon" class="innhold">
        <h3>Befolkningsdata</h3>
        <p> På denne nettsiden finner du en statistisk oversikt over befolkningstall, utdanning og antall sysselsatte i Norge. 
@@ -34,26 +31,43 @@
             Vi tar forbehold om eventuelle feil som kan forekomme i oversikten. 
         </p>
     </div>
-
+    
+    <!-- Oversikt -->
     <div id="oversikt" class="innhold" hidden>
-        <p>Oversikt</p>
+        <h3>Oversikt</h3>
     </div>
 
+    <!-- Detaljer -->
     <div id="detaljer" class="innhold" hidden>
-        <p>detaljer</p>
+        <h3>Detaljer</h3>
+        <p> Kommunenummer:
+            <br>
+        </p>
         <input type="text" id="kommuneNr">
     </div>
 
+    <!-- Sammenligning av kommuner -->
     <div id="sammenligning" class="innhold" hidden>
-        <p>sammenligning</p>
+        <h3>Sammenligning av to kommuner</h3>
+        <p>Kommunenummer:</p>
         <input type="text" id="kommuneEn">
+        <br>
         <input type="text" id="kommuneTo">
     </div>
 
+    <!-- GIF som illustrer at datasettene laster. -->
+    <div id="loading" hidden>
+        <img src="https://media1.tenor.com/images/a6a6686cbddb3e99a5f0b60a829effb3/tenor.gif?itemid=7427055"> 
+    </div>
+
+    
     <footer>
      <p>Dette er en oppgave i INFO134</p>
     </footer>
-    <script src="js/data.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/utdanning.js"></script>
+    <script type="text/javascript" src="js/sysselsetting.js"></script>
+    <script type="text/javascript" src="js/befolkning.js"></script>  
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
