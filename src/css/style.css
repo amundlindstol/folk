@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  text-align: center;
 }
 
 
@@ -47,6 +48,25 @@ li a:hover {
   footer p {
     font-size: 16px;
   }
+}
+
+
+input {
+  text-align: center;
+  border-color: #333;
+}
+
+table {
+  width: 100%;
+  margin: 20px auto;
+  padding-bottom: 10%;
+  table-layout: auto;
+}
+
+#columnContainer {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
 }
 
 .active {

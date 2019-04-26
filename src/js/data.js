@@ -39,13 +39,10 @@ class Data {
             if(status !== null){
                 var data = JSON.parse(rawData);
                 obj.data = data;
-                console.log(data);
-
                 //Test
-                console.log(data.elementer.Flora);
+                //console.log(data.elementer.Flora);
             }
             else{
-                console.log(status);
             }
         });
     }

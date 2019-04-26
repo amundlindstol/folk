@@ -16,7 +16,10 @@ function displayBlock(block) {
     for(i = 0; i < blocks.length; i++){
         blocks.item(i).style.display = "none";
     } 
-    document.getElementById(block).style.display = "block";    
+    document.getElementById(block).style.display = "block";
+    if (document.getElementById("sammenligning").style.display == "block") {
+        new Sammenligning("http://wildboy.uib.no/~tpe056/folk/100145.json"); 
+    }
 }
 
 //undo loadinganimation
