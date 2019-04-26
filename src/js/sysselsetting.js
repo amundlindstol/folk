@@ -1,8 +1,9 @@
 //Skjelett til resterende klasser som behandler data:
-class X {
+class Sysselsetting {
     constructor(url){
         this.onload = null; //skal potensielt tilordnes en funksjon
         this.url = url;
+        this.dataAccessor = new Data(url); 
     }
 
     //Fra oppgbeskrivelse
@@ -30,12 +31,7 @@ class X {
      * Klargjør og sender en forespørsel om å laste ned datasettet. 
      * To do: "Dersom objektet har egenskapet onload.."
      */
-    load(){}
+    load(){
+        this.data = this.dataAccessor.accessData();
+    }
 }
-
-/** 
-var employment = new Data("http://wildboy.uib.no/~tpe056/folk/100145.json");
-employment.load();
-var education = new Data("http://wildboy.uib.no/~tpe056/folk/85432.json");
-education.load();
-*/
