@@ -40,10 +40,11 @@
     <!-- Detaljer -->
     <div id="detaljer" class="innhold" hidden>
         <h3>Detaljer</h3>
-        <p> Kommunenummer:
-            <br>
+        <p>
+          Kommunenummer:<br>
+          <input type="text" id="kommuneNr" onchange="hentDetaljer()">  <button type="button" name="button" onclick="hentDetaljer()">Send</button>
+          <span id=detaljObjekt></span>
         </p>
-        <input type="text" id="kommuneNr">
     </div>
 
     <!-- Sammenligning av kommuner -->

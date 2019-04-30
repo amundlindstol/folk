@@ -11,8 +11,8 @@ var befolkning = new Befolkning("http://wildboy.uib.no/~tpe056/folk/104857.json"
 /**
  * Tilordner det siste datasettet som skal lastes en funksjon som gjør at det vises en GIF som laster (dersom datasettet ikke ferdig nedlastet).
  * Det betyr at når dette datasettet er lastet inn, burde de andre også være det.
- * 
- * 
+ *
+ *
  * Midlertidig. kan fjernes
  */
 befolkning.onload = () => {
@@ -29,14 +29,37 @@ utdanning.load();
 sysselsetting.load();
 befolkning.load();
 
+function hentDetaljer() {
+  var nummer = document.getElementById('kommuneNr').value;
+  console.log(nummer);
+  for (var nr in befolkning.data.data.elementer) {
+    if (nr.kommunenummer == nummer) {
+      console.log(nr);
+    }
+  }
+
+
+  /**
+  * Kommunens navn
+  * Kommunenr
+  * Siste befolkningstall
+  * Siste Sysselsetting
+  * Siste Utdanning
+  *
+  * Tabell for utvikling i alle 3 datasett
+  *
+  */
+}
+
+
 function displayBlock(block) {
     var blocks = document.getElementsByClassName("innhold");
     for(i = 0; i < blocks.length; i++){
         blocks.item(i).style.display = "none";
-    } 
+    }
     document.getElementById(block).style.display = "block";
     if (document.getElementById("sammenligning").style.display == "block") {
-        new Sammenligning("http://wildboy.uib.no/~tpe056/folk/100145.json"); 
+        new Sammenligning("http://wildboy.uib.no/~tpe056/folk/100145.json");
     }
 }
 
@@ -44,5 +67,5 @@ function displayBlock(block) {
 function invisible(){
     for(i = 0; i < blocks.length; i++){
         blocks.item(i).style.display = "none";
-    } 
+    }
 }
