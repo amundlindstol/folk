@@ -44,7 +44,7 @@ class Sysselsetting {
         
         var data = this.dataAccessor;
         console.log(data);
-        console.log(data.hei);
+        console.log(data);
         console.log(data["url"]);
         this.data = data;
         return;
