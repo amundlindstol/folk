@@ -5,7 +5,7 @@ var blocks = document.getElementsByClassName("innhold");
 
 //Kan aksessere data om henholdsvis utdanning, sysselsetting og beolkning v.hj.a. disse objektene
 var utdanning = new Utdanning("http://wildboy.uib.no/~tpe056/folk/85432.json");
-var sysselsetting = new Sysselsetting("http://wildboy.uib.no/~tpe056/folk/100145.json");
+//var sysselsetting = new Sysselsetting("http://wildboy.uib.no/~tpe056/folk/100145.json");
 var befolkning = new Befolkning("http://wildboy.uib.no/~tpe056/folk/104857.json");
 
 befolkning.load();
