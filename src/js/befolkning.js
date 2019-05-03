@@ -40,6 +40,17 @@ class Befolkning {
     }
 
 
+    getKommuneByID(nummer) {
+      for (var kommune in befolkning.data) {
+        if (nummer == befolkning.data[kommune].kommunenummer) {
+          var obj = befolkning.data[kommune]
+          obj["name"] = kommune;
+          return obj;
+        }
+      }
+    }
+
+
     load(){
         this.dataAccessor.accessData();
         this.data = this.dataAccessor.data;

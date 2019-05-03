@@ -7,7 +7,7 @@ class Data {
         var req = new XMLHttpRequest();
         /**
          * Forklaring:
-         * req.open(.., .., false); 
+         * req.open(.., .., false);
          * ^ Gjør den eksekveringen sykron slik at vi ikke får problemer med at datasettet
          * ikke er lastet inn før vi prøver å bruke det. Står dog at det er frarådet praksis så vi burde sikkert endre det.
          * Foreløpig kan vi ialf kode videre uten at vi har problemer med denne klassen.
@@ -18,6 +18,6 @@ class Data {
             this.data = JSON.parse(req.responseText);
         }
         this.data = this.data.elementer;
-        console.log(this.data);
+        //console.log(this.data);
     }
 }
