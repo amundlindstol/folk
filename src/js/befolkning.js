@@ -3,7 +3,8 @@ class Befolkning {
     constructor(url){
         this.onload = null; //skal potensielt tilordnes en funksjon
         this.url = url;
-        this.dataAccessor = new Data(url); 
+        this.dataAccessor = new Data(url);
+        this.load();
     }
 
     //Fra oppgbeskrivelse
@@ -24,8 +25,5 @@ class Befolkning {
 
     load(){
         this.data = this.dataAccessor.accessData();
-        while(this.data == null){
-            this.onload();
-        }
     }
 }

@@ -1,49 +1,23 @@
-/**
- * 
- * Befolkning http://wildboy.uib.no/~tpe056/folk/104857.json
- * Sysselsatte http://wildboy.uib.no/~tpe056/folk/100145.json
- * Utdanning http://wildboy.uib.no/~tpe056/folk/85432.json
- * 
- * 
- * For å aksessere riktig objekt (kan kanskje være nyttig, dunno)
- * https://stackoverflow.com/questions/41619319/using-wildcards-when-accessing-a-multi-dimensional-object-in-javascript
- * https://hackernoon.com/accessing-nested-objects-in-javascript-f02f1bd6387f
- * https://javascript.info/keys-values-entries
- */
-
 class Data {
     constructor(url){
         this.url = url;
     }
 
     accessData(){
-        var obj = this;
-        
-        var fetchAndConvert = function(url, callback) { 
-           var req = new XMLHttpRequest();
-            req.open("GET", url);
-            req.responseType = "text";
-            req.onreadystatechange = function() {
-                if(req.status == 200 && req.readyState === 4){
-                    callback(req.status, req.responseText);
-                }
-                else{
-                    callback(null, req.response);
-                }
-            };
-            req.send();
+        var req = new XMLHttpRequest();
+        /**
+         * Forklaring:
+         * req.open(.., .., false); 
+         * ^ Gjør den eksekveringen sykron slik at vi ikke får problemer med at datasettet
+         * ikke er lastet inn før vi prøver å bruke det. Står dog at det er frarådet praksis så vi burde sikkert endre det.
+         * Foreløpig kan vi ialf kode videre uten at vi har problemer med denne klassen.
+        */
+        req.open("GET", this.url, false);
+        req.send(null);
+        if(req.status === 200 && req.readyState === 4){
+            this.data = JSON.parse(req.responseText);
         }
-
-        fetchAndConvert(this.url, (status, rawData) => {
-            if(status !== null){
-                var data = JSON.parse(rawData);
-                obj.data = data;
-                //console.log(data);
-            }
-            else{
-                //console.log(status);
-            }
-        });
-        return obj;
+        this.data = this.data.elementer;
+        console.log(this.data);
     }
 }
