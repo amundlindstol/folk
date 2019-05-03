@@ -8,7 +8,7 @@ class Befolkning {
 
     }
 
-    /** 
+    /**
     getData(){
       return this.data.data.elementer;
       this.load();
@@ -27,8 +27,9 @@ class Befolkning {
       var ret = [];
       var count = 0;
       for (var kommune in elementer) {
-          return[count++] = elementer[kommune];
+          ret[count++] = elementer[kommune];
       }
+      return ret;
     }
     /**
      * Returnerer listen av kommunenummer som fremtrer i datasettene.
@@ -40,8 +41,9 @@ class Befolkning {
       var ret = [];
       var count = 0;
       for (var kommune in elementer) {
-          return[count++] = elementer[kommune].kommunenummer;
+          ret[count++] = elementer[kommune].kommunenummer;
       }
+      return ret;
     }
 
 
