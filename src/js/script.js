@@ -31,12 +31,7 @@ befolkning.load();
 
 function hentDetaljer() {
   var nummer = document.getElementById('kommuneNr').value;
-  console.log(nummer);
-  for (var nr in befolkning.data.data.elementer) {
-    if (nr.kommunenummer == nummer) {
-      console.log(nr);
-    }
-  }
+
 
 
   /**
