@@ -28,7 +28,11 @@ befolkning.onload = () => {
 
 function hentDetaljer() {
   var nummer = document.getElementById('kommuneNr').value;
-
+  for (var kommune in befolkning.data) {
+    if (nummer == befolkning.data[kommune].kommunenummer) {
+      return befolkning.data[kommune];
+    }
+  }
 
 
   /**

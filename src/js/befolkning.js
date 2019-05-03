@@ -8,13 +8,6 @@ class Befolkning {
 
     }
 
-    /**
-    getData(){
-      return this.data.data.elementer;
-      this.load();
-    }
-    */
-
     //Fra oppgbeskrivelse
     /**
      * Returnerer listen av alle kommunenavn som fremtrer i datasettene.
@@ -23,11 +16,11 @@ class Befolkning {
      */
 
     getNames(){
-      var elementer = this.getData();
+      var elementer = this.data;
       var ret = [];
       var count = 0;
       for (var kommune in elementer) {
-          ret[count++] = elementer[kommune];
+          ret[count++] = kommune;
       }
       return ret;
     }
@@ -37,11 +30,11 @@ class Befolkning {
      * @return numbers
      */
     getIDs(){
-      var elementer = this.getData();
+      var elementer = this.data;
       var ret = [];
       var count = 0;
       for (var kommune in elementer) {
-          ret[count++] = elementer[kommune].kommunenummer;
+          ret[count++] = String(elementer[kommune].kommunenummer);
       }
       return ret;
     }
@@ -49,6 +42,6 @@ class Befolkning {
 
     load(){
         this.dataAccessor.accessData();
-        this.data = dataAccessor.data;
+        this.data = this.dataAccessor.data;
     }
 }
