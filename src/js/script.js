@@ -32,7 +32,7 @@ function hentDetaljer() {
   var dom = document.getElementById('detaljObjekt');
   dom.innerHTML = "<b>"+kommune["name"]+"</b><br>"+
   "Kommunenummer: "+kommune["kommunenummer"]+"<br>"+
-  "Befolkning: "+(Number(kommune["Kvinner"])+kommune["Menn"]);
+  "Befolkning: "+befolkning.getLastPopulationString(kommune["name"]);
 
   /**
   * Kommunens navn

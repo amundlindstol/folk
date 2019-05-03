@@ -57,7 +57,17 @@ class Befolkning {
           newest = kvinner;
         }
       }
-      return ""+(this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest])+" ("+newest+").";
+      return this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest];
+    }
+
+    getLastPopulationString(kommune) {
+      var newest = 0;
+      for (var kvinner in this.data[kommune].Kvinner) {
+        if (Number(kvinner) > newest) {
+          newest = kvinner;
+        }
+      }
+      return ""+(this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest])+" ("+newest+")";
     }
 
 
