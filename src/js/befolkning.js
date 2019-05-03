@@ -39,6 +39,11 @@ class Befolkning {
       return ret;
     }
 
+    getKommuneByName(name) {
+      var obj = this.data[kommune]
+      obj["name"] = kommune;
+      return obj;
+    }
 
     getKommuneByID(nummer) {
       for (var kommune in this.data) {
