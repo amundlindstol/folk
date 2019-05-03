@@ -41,13 +41,23 @@ class Befolkning {
 
 
     getKommuneByID(nummer) {
-      for (var kommune in befolkning.data) {
-        if (nummer == befolkning.data[kommune].kommunenummer) {
-          var obj = befolkning.data[kommune]
+      for (var kommune in this.data) {
+        if (nummer == this.data[kommune].kommunenummer) {
+          var obj = this.data[kommune]
           obj["name"] = kommune;
           return obj;
         }
       }
+    }
+
+    getLastPopulation(kommune) {
+      var newest = 0;
+      for (var kvinner in this.data[kommune].Kvinner) {
+        if (Number(kvinner) > newest) {
+          newest = kvinner;
+        }
+      }
+      return ""+(this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest])+" ("+newest+").";
     }
 
 

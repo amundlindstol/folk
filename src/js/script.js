@@ -29,6 +29,10 @@ befolkning.onload = () => {
 function hentDetaljer() {
   var nummer = document.getElementById('kommuneNr').value;
   var kommune = befolkning.getKommuneByID(nummer);
+  var dom = document.getElementById('detaljObjekt');
+  dom.innerHTML = "<b>"+kommune["name"]+"</b><br>"+
+  "Kommunenummer: "+kommune["kommunenummer"]+"<br>"+
+  "Befolkning: "+(Number(kommune["Kvinner"])+kommune["Menn"]);
 
   /**
   * Kommunens navn
