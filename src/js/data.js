@@ -14,7 +14,9 @@ class Data {
          */
         if(onload != undefined) {
             req.onreadystatechange = () => {
-                onload();
+                if(req.readyState === 4) {
+                    onload();
+                }
             };
         }
         req.open("GET", this.url, false);

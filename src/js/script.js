@@ -5,7 +5,7 @@ var blocks = document.getElementsByClassName("innhold");
 
 //Kan aksessere data om henholdsvis utdanning, sysselsetting og beolkning v.hj.a. disse objektene
 var utdanning = new Utdanning("http://wildboy.uib.no/~tpe056/folk/85432.json");
-//var sysselsetting = new Sysselsetting("http://wildboy.uib.no/~tpe056/folk/100145.json");
+var sysselsetting = new Sysselsetting("http://wildboy.uib.no/~tpe056/folk/100145.json");
 var befolkning = new Befolkning("http://wildboy.uib.no/~tpe056/folk/104857.json");
 
 
@@ -24,7 +24,7 @@ function hentOversikt() {
     obj["befolkningstall"] = befolkning.getLastPopulationString(kommune);
     ret[kommune] = obj;
   }
-  
+
   return ret;
 }
 
@@ -70,9 +70,10 @@ function displayBlock(block) {
     blocks.item(i).style.display = "none";
   }
   document.getElementById(block).style.display = "block";
-  if (document.getElementById("sammenligning").style.display == "block") {
+  
+  /*if (document.getElementById("sammenligning").style.display == "block") {
     new Sammenligning("http://wildboy.uib.no/~tpe056/folk/100145.json");
-  }
+  }*/
 }
 
 //Gjør alt innhold usynlig. Hjelpemetode.
