@@ -1,9 +1,9 @@
 /*jshint esversion: 6 */
 
 const hentOversikt = (befolkning) => {
-    var ret = {};
-    for (var kommune in befolkning.data) {
-        var obj = befolkning.getKommuneByName(kommune);
+    let ret = {};
+    for (let kommune in befolkning.data) {
+        let obj = befolkning.getKommuneByName(kommune);
         obj.befolkningstall = befolkning.getLastPopulationString(kommune);
         ret[kommune] = obj;
     }
@@ -11,17 +11,33 @@ const hentOversikt = (befolkning) => {
     return ret;
 };
 const putOversikt = (befolkning) => {
-    var table = document.getElementById('oversiktTabell');
-    var oversikt = hentOversikt(befolkning);
-    var i = 1;
-    for (var kommune in oversikt) {
-        var komObj = oversikt[kommune];
-        var row = table.insertRow(i++);
-        var kommuneNavn = row.insertCell(0);
-        var kommuneNR = row.insertCell(1);
-        var befolkningsTall = row.insertCell(2);
-        kommuneNavn.innerHTML = kommune;
-        kommuneNR.innerHTML = komObj.kommunenummer;
-        befolkningsTall.innerHTML = komObj.befolkningstall;
+    let overviewDiv = document.getElementById('oversiktDiv');
+    let oversikt = hentOversikt(befolkning);
+    let i = 1;
+    for (let kommune in oversikt) {
+        let kommuneObject = oversikt[kommune];
+        let columnDiv = document.createElement("div");
+        columnDiv.className = "columnElement";
+
+        let kommuneNavn = document.createElement("div");
+        kommuneNavn.innerHTML = "<p>" + kommune + "</p>"; 
+        
+        let kommuneNr = document.createElement("div");
+        kommuneNr.innerHTML = "<p>" + kommuneObject.kommunenummer + "</p>"; 
+        kommuneNr.className = "kommunenummer";
+
+        let befolkningsTall = document.createElement("div");
+        befolkningsTall.innerHTML = "<p>" + kommuneObject.befolkningstall + "</p>"; 
+
+        //console.log(kommune);
+        //console.log(komObj);
+        //let row = table.insertRow(i++);
+        //kommuneNavn.innerHTML = kommune;
+        //kommuneNR.innerHTML = komObj.kommunenummer;
+        //befolkningsTall.innerHTML = komObj.befolkningstall;
+        columnDiv.appendChild(kommuneNavn);
+        columnDiv.appendChild(kommuneNr);
+        columnDiv.appendChild(befolkningsTall);
+        overviewDiv.appendChild(columnDiv);
     }
 };

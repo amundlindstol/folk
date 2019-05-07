@@ -42,7 +42,7 @@ li a:hover {
 
 @media screen and (min-width: 740px) {
   li a {
-     font-size: 16px;
+    font-size: 16px;
   }
 
   footer p {
@@ -61,6 +61,7 @@ table {
   margin: 20px auto;
   padding-bottom: 10%;
   table-layout: auto;
+
 }
 
 #columnContainer {
@@ -86,6 +87,36 @@ footer {
   background-color: #333;
 }
 
-.hidden{
-    display:none;
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  #oversiktDiv {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .columnElement {
+    border-bottom: 1px lightgray solid;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  #oversiktDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .columnElement {
+    border-color: blue;
+    border-width: 1px;
+  }
+}
+
+.kommunenummer {
+  background-color: rgb(243, 243, 243);
 }
