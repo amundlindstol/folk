@@ -42,13 +42,20 @@ function getInfo(number, data, oneOrTwo) {
     document.getElementById("kommune" + oneOrTwo + "Text").innerHTML = result;
 }
 
-function triggerOther(number, oneOrTwo) {
-    var ch = document.getElementById("kommune" + oneOrTwo + "Text").children;
+function triggerOther(oneOrTwo) {
+    
+    let thisTable = document.getElementById("kommune" + oneOrTwo + "Text");
     oneOrTwo = flip(oneOrTwo);
-    var otherCh = document.getElementById("kommune" + oneOrTwo + "Text").children;
+    let otherTable = document.getElementById("kommune" + oneOrTwo + "Text");
+
+    if (thisTable !== undefined || otherTable !== undefined) {
+    
+        var children = this.children;
+        var otherChildren = otherTable.children;
     //TODO fix
-    compare(ch, otherCh, oneOrTwo);
-    compare(otherCh, ch, flip(oneOrTwo));
+        compare(children, otherChildren, oneOrTwo);
+        compare(otherChildren, children, flip(oneOrTwo));
+    }
 }
 
 function flip(oneOrTwo) {
@@ -59,13 +66,13 @@ function flip(oneOrTwo) {
     }
 }
 
-function compare(ch, otherCh, chTextId) {
-    if (otherCh[25] === undefined || ch[25] === undefined || ch.length < 25 || otherCh.length < 25) {
+function compare(children, otherChildren, chTextId) {
+    if (otherChildren[25] === undefined || children[25] === undefined || children.length < 25 || otherChildren.length < 25) {
         return;
     }
-    for (var i = 0; i < ch.length || i < otherCh.length; i++) {
-        var first = String(ch[i].innerHTML);
-        var second = String(otherCh[i].innerHTML);
+    for (var i = 0; i < children.length || i < otherChildren.length; i++) {
+        var first = String(children[i].innerHTML);
+        var second = String(otherChildren[i].innerHTML);
         var firstVal = Number(first.substring(first.indexOf(":") + 1, first.length));
         var secondVal = Number(second.substring(second.indexOf(":") + 1, second.length));
         console.log(firstVal + " " + secondVal);
