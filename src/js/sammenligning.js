@@ -1,7 +1,6 @@
 /*jshint esversion: 6 */
 
-
-const sammenlign = () => {
+const sammenlign = (sysselsetting) => {
     let kommune1 = document.getElementById("kommuneEn");
     let kommune2 = document.getElementById("kommuneTo");
     kommune1.onkeyup = () => {
@@ -13,48 +12,75 @@ const sammenlign = () => {
 };
 
 /**
- * Returnerer informasjon om en kommune basert på aktuelt datasett og gitt kommuneNr
- * 
- * @return numbers
+ * will take the {input} and list every kommunenummer starting with {input}
+ * if only one kommune is found, see if other input is 
  */
 function getInfo(number, data, oneOrTwo) {
-    var result = "";
-    var kommuneNavn = "feil";
-    var count = 0;
-    for (var kommune in data) {
+    let errorMessage = document.createElement('tr');
+    errorMessage.innerHTML = "ugyldig kommunenummer";
+    const kommuneTable = getTable(oneOrTwo);
+    let lastKommuneNavn = "feil";
+    let count = 0;
+    while (kommuneTable.firstChild) { // clear table
+        kommuneTable.removeChild(kommuneTable.firstChild);
+    }
+    for (let kommune in data) {  // 'live' search through the data
         if (data.hasOwnProperty(kommune) && String(data[kommune].kommunenummer).startsWith(number)) {
-            result += "<p>" + kommune + "    " + data[kommune].kommunenummer + "</p>";
-            kommuneNavn = kommune;
+            const tableElement = document.createElement('tr');
+            tableElement.innerHTML = kommune + "    " + data[kommune].kommunenummer;
+            kommuneTable.appendChild(tableElement);
+            lastKommuneNavn = kommune;
             count++;
         }
     }
     if (count === 1) { // there is only one match
-        var content = JSON.stringify(data[kommuneNavn]).replace(/}|"/g, "").split(/,|{/g);
-        for (var line of content) {
-            result += "<tr><td>" + line + "</td></tr>";
+        let content = JSON.stringify(data[lastKommuneNavn]).replace(/}|"/g, "").split(/,|{/g);
+        for (let line of content) {
+            const tableElement = document.createElement('tr');
+            tableElement.innerHTML = line+"\n";
+            kommuneTable.appendChild(tableElement);
         }
-        document.getElementById("kommune" + oneOrTwo + "Text").innerHTML = result;
-        triggerOther(number, oneOrTwo);
-        return;
-    } else if (count === 0) {
+        compareWithOther(oneOrTwo); // compare if other table exist
+    } else if (count === 0) { // no kommunenummer match
+        kommuneTable.appendChild(errorMessage);
         result = "ugyldig kommunenummer";
+    } else {
+        let otherCol = getTable(oneOrTwo, true);
+        if (otherCol != undefined) {
+            for (const iterator of otherCol.children) {
+                iterator.style.color = "black";
+            }
+        }
     }
-    document.getElementById("kommune" + oneOrTwo + "Text").innerHTML = result;
 }
 
-function triggerOther(oneOrTwo) {
-    
-    let thisTable = document.getElementById("kommune" + oneOrTwo + "Text");
-    oneOrTwo = flip(oneOrTwo);
-    let otherTable = document.getElementById("kommune" + oneOrTwo + "Text");
+function compareWithOther(oneOrTwo) {
+    let child = getTable(oneOrTwo).children;
+    let otherChild = getTable(oneOrTwo, true).children;
+    if (child.length < 2 || otherChild.length < 2) {
+        return; // Only one table exist
+    }
+    compare(child, otherChild, oneOrTwo);
+}
 
-    if (thisTable !== undefined || otherTable !== undefined) {
-    
-        var children = this.children;
-        var otherChildren = otherTable.children;
-    //TODO fix
-        compare(children, otherChildren, oneOrTwo);
-        compare(otherChildren, children, flip(oneOrTwo));
+// compares the percent values in both columns & gives them corresponding colors
+function compare(child, otherChild, oneOrTwo) {
+    for (let i = 0; i < child.length || i < otherChild.length; i++) {
+        let first = String(child[i].innerHTML);
+        let second = String(otherChild[i].innerHTML);
+        let firstVal = Number(first.substring(first.indexOf(":") + 1, first.length));
+        let secondVal = Number(second.substring(second.indexOf(":") + 1, second.length));
+        if (firstVal > secondVal) {
+            getTable(oneOrTwo).children[i].style.color = "green";
+            getTable(oneOrTwo, true).children[i].style.color = "lightcoral";
+        } else if (firstVal < secondVal) {
+            getTable(oneOrTwo, true).children[i].style.color = "green";
+            getTable(oneOrTwo).children[i].style.color = "lightcoral";
+        } else {
+            getTable(oneOrTwo).children[i].style.color = "black";
+            getTable(oneOrTwo, true).children[i].style.color = "black";
+        }
+
     }
 }
 
@@ -66,24 +92,9 @@ function flip(oneOrTwo) {
     }
 }
 
-function compare(children, otherChildren, chTextId) {
-    if (otherChildren[25] === undefined || children[25] === undefined || children.length < 25 || otherChildren.length < 25) {
-        return;
+getTable = (EnTo, other=false) => {
+    if (other) {
+        EnTo = flip(EnTo);
     }
-    for (var i = 0; i < children.length || i < otherChildren.length; i++) {
-        var first = String(children[i].innerHTML);
-        var second = String(otherChildren[i].innerHTML);
-        var firstVal = Number(first.substring(first.indexOf(":") + 1, first.length));
-        var secondVal = Number(second.substring(second.indexOf(":") + 1, second.length));
-        console.log(firstVal + " " + secondVal);
-        if (firstVal < secondVal) {
-            document.getElementById("kommune" + chTextId + "Text").children[i].style.color = "green";
-        } else if (firstVal > secondVal) {
-            document.getElementById("kommune" + flip(chTextId) + "Text").children[i].style.color = "green";
-        } else {
-            document.getElementById("kommune" + chTextId + "Text").children[i].style.color = "red";
-            document.getElementById("kommune" + flip(chTextId) + "Text").children[i].style.color = "red";
-        }
-
-    }
+    return document.getElementById("kommune" + EnTo + "Text")
 }

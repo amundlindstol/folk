@@ -29,6 +29,7 @@ class Sysselsetting {
 
     /**
      * Klargjør og sender en forespørsel om å laste ned datasettet. 
+     * To do: "Dersom objektet har egenskapet onload.."
      */
     load() {
         this.dataAccessor.accessData(this.onload);
