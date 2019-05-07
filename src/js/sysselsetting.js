@@ -1,5 +1,3 @@
-/*jshint esversion: 6 */
-
 //Skjelett til resterende klasser som behandler data:
 class Sysselsetting {
     constructor(url) {
@@ -29,9 +27,28 @@ class Sysselsetting {
 
     /**
      * Klargjør og sender en forespørsel om å laste ned datasettet. 
+     * To do: "Dersom objektet har egenskapet onload.."
      */
-    load() {
-        this.dataAccessor.accessData(this.onload);
+    load(){
+        this.sammenlign();
+    }
+
+    sammenlign() {
+        
+        var data = this.dataAccessor;
+        console.log(data);
+        console.log(data.data);
+        console.log(data.url);
+        this.data = data;
+        return;
+        var kommune1 = document.getElementById("kommuneEn");
+        var kommune2 = document.getElementById("kommuneTo");
+        kommune1.onkeyup = function() {
+            getInfo(kommune1.value, data, "En");
+        };
+        kommune2.onkeyup = function() {
+            getInfo(kommune2.value, data, "To");
+        };
     }
 }
 
