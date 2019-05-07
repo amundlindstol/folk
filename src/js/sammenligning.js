@@ -1,3 +1,16 @@
+/*jshint esversion: 6 */
+
+
+const sammenlign = () => {
+    let kommune1 = document.getElementById("kommuneEn");
+    let kommune2 = document.getElementById("kommuneTo");
+    kommune1.onkeyup = () => {
+        getInfo(kommune1.value, sysselsetting.data, "En");
+    };
+    kommune2.onkeyup = () => {
+        getInfo(kommune2.value, sysselsetting.data, "To");
+    };
+};
 
 /**
  * Returnerer informasjon om en kommune basert på aktuelt datasett og gitt kommuneNr

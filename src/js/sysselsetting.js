@@ -4,9 +4,12 @@
 class Sysselsetting {
     constructor(url) {
         this.url = url;
+        this.onload = () => {
+            this.data = this.dataAccessor.data;
+            sammenlign(this);  
+        };
         this.dataAccessor = new Data(url);
         this.load();
-        this.sammenlign();
     }
 
     //Fra oppgbeskrivelse
@@ -30,19 +33,9 @@ class Sysselsetting {
      */
     load() {
         this.dataAccessor.accessData(this.onload);
-        this.data = this.dataAccessor.data;
     }
 
-    sammenlign() {
-        let kommune1 = document.getElementById("kommuneEn");
-        let kommune2 = document.getElementById("kommuneTo");
-        kommune1.onkeyup = () => {
-            getInfo(kommune1.value, this.data, "En");
-        };
-        kommune2.onkeyup = () => {
-            getInfo(kommune2.value, this.data, "To");
-        };
-    }
+    
 }
 
 /** 
