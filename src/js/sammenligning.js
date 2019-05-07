@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
 
-const sammenlign = () => {
+const sammenlign = (sysselsetting) => {
     let kommune1 = document.getElementById("kommuneEn");
     let kommune2 = document.getElementById("kommuneTo");
     kommune1.onkeyup = () => {

@@ -33,8 +33,6 @@ class Sysselsetting {
     load() {
         this.dataAccessor.accessData(this.onload);
     }
-
-    
 }
 
 /** 
