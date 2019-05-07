@@ -53,8 +53,8 @@
         <h3>Detaljer</h3>
         <p>
             Kommunenummer:<br>
-            <input type="text" id="kommuneNr" onchange="hentDetaljer()">
-            <button type="button" name="button" onclick="hentDetaljer()">Send</button>
+            <input type="text" id="kommuneNr" onchange="hentDetaljer(befolkning)">
+            <button type="button" name="button" onclick="hentDetaljer(befolkning)">Send</button>
         </p>
         <p>
             <span id=detaljObjekt></span>
@@ -76,11 +76,10 @@
 
     <!-- GIF som illustrer at datasettene laster. -->
     <div id="loading">
-        <h2>loading datasets...</h2>
+        <h2>Loading datasets...</h2>
         <!-- hidden -->
         <img src="https://media1.tenor.com/images/a6a6686cbddb3e99a5f0b60a829effb3/tenor.gif?itemid=7427055">
     </div>
-
 
     <footer>
         <p>Dette er en oppgave i INFO134</p>
@@ -89,6 +88,9 @@
     <script type="text/javascript" src="js/utdanning.js"></script>
     <script type="text/javascript" src="js/sysselsetting.js"></script>
     <script type="text/javascript" src="js/befolkning.js"></script>
+    <script type="text/javascript" src="js/oversikt.js"></script>
+    <script type="text/javascript" src="js/detaljer.js"></script>
+    <script type="text/javascript" src="js/sammenligning.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 

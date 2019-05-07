@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 class Data {
     constructor(url) {
         this.url = url;
@@ -5,27 +7,22 @@ class Data {
 
     accessData(onload) {
         var req = new XMLHttpRequest();
-        /**
-         * Forklaring:
-         * req.open(.., .., false);
-         * ^ Gjør den eksekveringen sykron slik at vi ikke får problemer med at datasettet
-         * ikke er lastet inn før vi prøver å bruke det. Står dog at det er frarådet praksis så vi burde sikkert endre det.
-         * Foreløpig kan vi ialf kode videre uten at vi har problemer med denne klassen.
-         */
-        if(onload != undefined) {
+
+        if (onload != undefined) {
             req.onreadystatechange = () => {
-                if(req.readyState === 4) {
+                if (req.readyState === 4) {
+                    this.data = JSON.parse(req.responseText);
+                    this.data = this.data.elementer;
                     onload();
                 }
             };
         }
-        req.open("GET", this.url, false);
+        req.open("GET", this.url, true);
         req.send(null);
-        
-        if (req.status === 200 && req.readyState === 4) {
-            this.data = JSON.parse(req.responseText);
-        }
-        this.data = this.data.elementer;
+
+        //if (req.status === 200 && req.readyState === 4) {
+
+        //}
         //console.log(this.data);
     }
 }

@@ -1,31 +1,13 @@
-// Usikker om dette er det beste stedet å ha disse, men de må laste inn før befolkning.
-const enableNavigationButtons = () => {
-  let introductionButton = document.getElementById("introductionButton");
-  introductionButton.onclick = () => displayBlock("introduksjon");
-
-  let overviewButton = document.getElementById("overviewButton");
-  overviewButton.onclick = () => displayBlock("oversikt");
-
-  let detailsButton = document.getElementById("detailsButton");
-  detailsButton.onclick = () => displayBlock("detaljer");
-
-  let comparisonButton = document.getElementById("comparisonButton");
-  comparisonButton.onclick = () => displayBlock("sammenligning");
-};
-
-const removeLoadingMessage = () => {
-  let loadingGif = document.getElementById("loading");
-  loadingGIF.hidden = "true";
-  let introductionDiv = document.getElementById("introduksjon");
-  introductionDiv.hidden = false;
-};
+/*jshint esversion: 6 */
 
 //Skjelett til resterende klasser som behandler data:
 class Befolkning {
   constructor(url) {
     this.onload = () => {
+      this.data = this.dataAccessor.data;
       enableNavigationButtons();
       removeLoadingMessage();
+      putOversikt(this);
     };
     this.url = url;
     this.dataAccessor = new Data(url);
@@ -66,15 +48,15 @@ class Befolkning {
 
   getKommuneByName(kommune) {
     var obj = this.data[kommune];
-    obj["name"] = kommune;
+    obj.name = kommune;
     return obj;
   }
 
   getKommuneByID(nummer) {
     for (var kommune in this.data) {
       if (nummer == this.data[kommune].kommunenummer) {
-        var obj = this.data[kommune]
-        obj["name"] = kommune;
+        var obj = this.data[kommune];
+        obj.name = kommune;
         return obj;
       }
     }
@@ -103,6 +85,5 @@ class Befolkning {
 
   load() {
     this.dataAccessor.accessData(this.onload);
-    this.data = this.dataAccessor.data;
   }
 }
