@@ -28,16 +28,5 @@ const putOversikt = (befolkning) => {
 
         let befolkningsTall = tableElement.insertCell();
         befolkningsTall.innerHTML = "<p>" + kommuneObject.befolkningstall + "</p>"; 
-
-        //console.log(kommune);
-        //console.log(komObj);
-        //let row = table.insertRow(i++);
-        //kommuneNavn.innerHTML = kommune;
-        //kommuneNR.innerHTML = komObj.kommunenummer;
-        //befolkningsTall.innerHTML = komObj.befolkningstall;
-        //tableElement.appendChild(kommuneNavn);
-        //tableElement.appendChild(kommuneNr);
-        //tableElement.appendChild(befolkningsTall);
-        //overviewTable.appendChild(tableElement);
     }
 };
