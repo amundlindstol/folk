@@ -101,7 +101,7 @@ function getInfo(number, data, oneOrTwo) {
     if (count === 1) { // there is only one match
         let content = JSON.stringify(data[lastKommuneNavn]).replace(/}|"/g, "").split(/,|{/g);
         displayTableOfKommune(data[lastKommuneNavn], oneOrTwo);
-        
+
         compareWithOther(oneOrTwo); // compare if other table exist
     } else if (count === 0) { // no kommunenummer match
         kommuneTable.appendChild(errorMessage);
@@ -128,7 +128,7 @@ function compareWithOther(oneOrTwo) {
 
 // compares the percent values in both columns & gives them corresponding colors
 function compare(child, otherChild, oneOrTwo) {
-    
+
     let otherChildsTables = Object.values(otherChild);
     let thisChildsTables = Object.values(child);
 
@@ -139,12 +139,9 @@ function compare(child, otherChild, oneOrTwo) {
         for (let j = 0; j < thisRows.length || j < otherRows.length; j++) {
             let firstVal = thisRows[j].textContent;
             let secondVal = otherRows[j].textContent;
-            console.log("First is: " + firstVal + ", second is: " + secondVal);
             if (firstVal > secondVal) {
                 thisRows[j].style.color = "green";
                 otherRows[j].style.color = "lightcoral";
-
-                //getTableData(oneOrTwo, true).children[j].style.color = "lightcoral";
             } else if (firstVal < secondVal) {
                 thisRows[j].style.color = "lightcoral";
                 otherRows[j].style.color = "green";
@@ -152,12 +149,12 @@ function compare(child, otherChild, oneOrTwo) {
                 thisRows[j].style.color = "black";
                 otherRows[j].style.color = "black";
             }
-    
+
         }
 
     }
 
-    
+
 }
 
 function flip(oneOrTwo) {
