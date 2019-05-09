@@ -9,8 +9,6 @@ class Utdanning {
     };
     this.dataAccessor = new Data(url);
     this.load();
-
-    this.getHigherEducation();
   }
 
   //Fra oppgbeskrivelse
@@ -32,7 +30,7 @@ class Utdanning {
   /**
    * Metode som tar et kommunenummer som argument, og returnerer informasjonen om denne kommunen fra
    * dette datasettet.
-   * 
+   *
    * @param  nummer  Nummeret på kommunen
    * @return obj     Objekt som inneholder informasjon om gitt kommune
    */
@@ -61,18 +59,38 @@ class Utdanning {
     return ret;
   }
 
-
   //03a + 04a (høyere utdanning)
   //uferdig metode
-  getHigherEducation() {
-    var ret = {};
-    for (var kommune in this.data) {
-      var tempKommune = this.getKommuneByID(this.data[kommune].kommunenummer);
-      ret[kommune] = tempKommune;
+  getHigherEducation(kommune) {
+    kommune = this.data[kommune];
+    var ret = 0;
+    var newest = 0;
+    for (var kvinner in kommune["03a"].Kvinner) {
+      if (Number(kvinner) > newest) {
+        newest = kvinner;
+      }
     }
-    return ret;
+    ret += 0+(kommune["03a"].Kvinner[newest] + kommune["03a"].Menn[newest])/2;
+    newest = 0;
+    for (var kvinner in kommune["04a"].Kvinner) {
+      if (Number(kvinner) > newest) {
+        newest = kvinner;
+      }
+    }
+    ret += 0+(kommune["04a"].Kvinner[newest] + kommune["04a"].Menn[newest])/2;
+
+    return ret.toFixed(2);
   }
 
+  getLastEducation(kommune, type) {
+    var newest = 0;
+    for (var kvinner in kommune[type].Kvinner) {
+      if (Number(kvinner) > newest) {
+        newest = kvinner;
+      }
+    }
+    return 0+(kommune[type].Kvinner[newest] + kommune[type].Menn[newest])/2;
+  }
 
   load() {
     this.dataAccessor.accessData(this.onload);

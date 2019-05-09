@@ -11,7 +11,9 @@ function generateDom(dom, kommune) {
   dom.innerHTML = "<b>" + kommune.name + "</b><br>" +
       "Kommunenummer: " + kommune.kommunenummer + "<br>" +
       "Befolkning: " + befolkning.getLastPopulationString(kommune.name) + "<br>" +
-      "Sysselsetting: "+ sysselsetting.getLastEmployment(kommune.name)+"% <br>";
+      "Sysselsetting: "+ sysselsetting.getLastEmployment(kommune.name)+"% <br>" +
+      "Høyere utdanning: "+ utdanning.getHigherEducation(kommune.name)+"% <br>";
+
   /**
    * Kommunens navn
    * Kommunenr

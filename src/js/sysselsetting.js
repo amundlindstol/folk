@@ -23,7 +23,8 @@ class Sysselsetting {
           newest = kvinner;
         }
       }
-      return 0+(this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest])/2;
+      var ret = 0+(this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest])/2;
+      return ret.toFixed(2);
     }
 
     getInfo() {
