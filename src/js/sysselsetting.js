@@ -12,6 +12,10 @@ class Sysselsetting {
         this.load();
     }
 
+    getInfo() {
+        // TODO: Implementer. 
+    }
+
     //Fra oppgbeskrivelse
     /**
      * Returnerer listen av alle kommunenavn som fremtrer i datasettene.

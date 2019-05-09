@@ -31,6 +31,11 @@ class Befolkning {
     }
     return ret;
   }
+
+  getInfo() {
+    // TODO: Implementer.
+  }
+
   /**
    * Returnerer listen av kommunenummer som fremtrer i datasettene.
    *
