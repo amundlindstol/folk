@@ -1,6 +1,7 @@
 body {
   margin: 0;
   text-align: center;
+  padding-bottom: 50px;
 }
 
 
@@ -81,6 +82,7 @@ footer {
   font-size: 3vw;
   position: fixed;
   width: 100%;
+  height: 50px;
   bottom: 0;
   text-decoration-color: white;
   background-color: #333;
@@ -118,10 +120,33 @@ footer {
   .infoTab {
     display: inline-table;
   }
+
+  #kommuneEnText,
+  #kommuneToText {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #kommuneEnData,
+  #kommuneToData {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #MenElements {
+    background-color: rgb(243, 243, 243);
+  }
+
+  .sammenligningTable {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }
 
 @media screen and (min-width: 700px) {
-  .sammenligningTable{
+  .sammenligningTable {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -131,14 +156,18 @@ footer {
     display: flex;
     flex-direction: row;
   }
-  #kommuneToText
-  {
+
+  #kommuneToText {
     display: flex;
     flex-direction: row;
   }
 
   .infoTab {
     display: none;
+  }
+
+  #topRow {
+    font-weight: bold;
   }
 
   #oversiktTable {
