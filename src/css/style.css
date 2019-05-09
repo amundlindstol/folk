@@ -118,36 +118,45 @@ footer {
   .infoTab {
     display: inline-table;
   }
-
 }
+
 @media screen and (min-width: 700px) {
-.infoTab {
-  display: none;
+  .sammenligningTable{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  #kommuneEnText {
+    display: flex;
+    flex-direction: row;
+  }
+  #kommuneToText
+  {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .infoTab {
+    display: none;
+  }
+
+  #oversiktTable {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tableElement {
+    border-bottom: 1px lightgray solid;
+    display: flex;
+  }
+
+  .tableElement td {
+    flex-grow: 1;
+    flex-basis: 30%;
+  }
 }
 
-#oversiktTable {
-  display: flex;
-  flex-direction: column;
-}
-
-.tableElement {
-  border-bottom: 1px lightgray solid;
-  display: flex;
-}
-
-.tableElement td {
-  flex-grow: 1;
-  flex-basis: 30%;
-}
-}
-
-}
-
-.sammenligningTable {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
 
 .kommunenummer {
   background-color: rgb(243, 243, 243);

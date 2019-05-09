@@ -81,7 +81,6 @@ class Utdanning {
       }
     }
     ret += 0+(kommune["04a"].Kvinner[newest] + kommune["04a"].Menn[newest])/2;
-
     return ret.toFixed(2);
   }
 
