@@ -35,7 +35,11 @@ class Befolkning {
   /**
    * Metode som tar et kommunenummer som argument, og returnerer informasjonen om denne kommunen fra
    * dette datasettet.
+<<<<<<< HEAD
    *
+=======
+   * 
+>>>>>>> aa33d01957c51278650d839595da824ad659a8ed
    * @param  nummer  Nummeret på kommunen
    * @return obj     Objekt som inneholder informasjon om gitt kommune
    */
@@ -47,12 +51,15 @@ class Befolkning {
         return obj;
       }
     }
+<<<<<<< HEAD
   }
 
   getKommuneByName(kommune) {
     let obj = this.data[kommune];
     obj["navn"] = kommune;
     return obj;
+=======
+>>>>>>> aa33d01957c51278650d839595da824ad659a8ed
   }
 
   /**
