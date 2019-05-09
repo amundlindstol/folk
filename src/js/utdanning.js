@@ -58,31 +58,12 @@ class Utdanning {
     }
     return ret;
   }
-  //01 Grunnskole
-  //02a VGS
-  //11 Fagskole
-  //03a Høyere utdanning bachelor
-  //04a Høyere utdanning master
-  //09a Ingen eller uvist utdanning
-  getHigherEducation(kommune) {
-    kommune = this.data[kommune];
-    var ret = 0;
-    var newest = 0;
-    for (var kvinner in kommune["03a"].Kvinner) {
-      if (Number(kvinner) > newest) {
-        newest = kvinner;
-      }
-    }
-    ret += 0+(kommune["03a"].Kvinner[newest] + kommune["03a"].Menn[newest])/2;
-    newest = 0;
-    for (var kvinner in kommune["04a"].Kvinner) {
-      if (Number(kvinner) > newest) {
-        newest = kvinner;
-      }
-    }
-    ret += 0+(kommune["04a"].Kvinner[newest] + kommune["04a"].Menn[newest])/2;
 
-    return ret.toFixed(2);
+  //03a + 04a (høyere utdanning)
+  //uferdig metode
+  getHigherEducation(kommune) {
+    return ((this.getLastEducation(this.data[kommune], "03a"))+
+    (this.getLastEducation(this.data[kommune], "04a"))).toFixed(2);
   }
 
   getLastEducation(kommune, type) {
