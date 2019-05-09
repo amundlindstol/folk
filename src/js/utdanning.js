@@ -29,7 +29,7 @@ class Utdanning {
     return ret;
   }
 
-   /**
+  /**
    * Metode som tar et kommunenummer som argument, og returnerer informasjonen om denne kommunen fra
    * dette datasettet.
    * 
@@ -75,6 +75,6 @@ class Utdanning {
 
 
   load() {
-    this.dataAccessor.accessData();
+    this.dataAccessor.accessData(this.onload);
   }
 }
