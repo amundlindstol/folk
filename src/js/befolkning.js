@@ -32,8 +32,21 @@ class Befolkning {
     return ret;
   }
 
-  getInfo() {
-    // TODO: Implementer.
+  /**
+   * Metode som tar et kommunenummer som argument, og returnerer informasjonen om denne kommunen fra
+   * dette datasettet.
+   * 
+   * @param  nummer  Nummeret på kommunen
+   * @return obj     Objekt som inneholder informasjon om gitt kommune
+   */
+  getInfo(nummer) {
+    for (var kommune in this.data) {
+      if (nummer == this.data[kommune].kommunenummer) {
+        var obj = this.data[kommune];
+        obj.name = kommune;
+        return obj;
+      }
+    }
   }
 
   /**
@@ -49,22 +62,6 @@ class Befolkning {
       ret[count++] = String(elementer[kommune].kommunenummer);
     }
     return ret;
-  }
-
-  getKommuneByName(kommune) {
-    var obj = this.data[kommune];
-    obj.name = kommune;
-    return obj;
-  }
-
-  getKommuneByID(nummer) {
-    for (var kommune in this.data) {
-      if (nummer == this.data[kommune].kommunenummer) {
-        var obj = this.data[kommune];
-        obj.name = kommune;
-        return obj;
-      }
-    }
   }
 
   getLastPopulation(kommune) {

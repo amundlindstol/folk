@@ -1,6 +1,3 @@
-/*jshint esversion: 6 */
-
-
 //Skjelett til resterende klasser som behandler data:
 class Utdanning {
   constructor(url) {
@@ -27,8 +24,21 @@ class Utdanning {
     return ret;
   }
 
+   /**
+   * Metode som tar et kommunenummer som argument, og returnerer informasjonen om denne kommunen fra
+   * dette datasettet.
+   * 
+   * @param  nummer  Nummeret på kommunen
+   * @return obj     Objekt som inneholder informasjon om gitt kommune
+   */
   getInfo() {
-    // TODO: Implementer.
+    for (var kommune in this.data) {
+      if (nummer == this.data[kommune].kommunenummer) {
+        var obj = this.data[kommune];
+        obj.name = kommune;
+        return obj;
+      }
+    }
   }
 
   /**
@@ -46,16 +56,6 @@ class Utdanning {
     return ret;
   }
 
-
-  getKommuneByID(nummer) {
-    for (var kommune in this.data) {
-      if (nummer == this.data[kommune].kommunenummer) {
-        var obj = this.data[kommune];
-        obj.name = kommune;
-        return obj;
-      }
-    }
-  }
 
   //03a + 04a (høyere utdanning)
   //uferdig metode
