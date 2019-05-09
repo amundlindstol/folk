@@ -92,29 +92,38 @@ footer {
 }
 
 @media screen and (max-width: 700px) {
-  #oversiktDiv {
+  #oversiktTable {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
 
-  .columnElement {
+  .tableElement {
+    display: flex;
     border-bottom: 1px lightgray solid;
+    flex-direction: column;
   }
 }
 
 @media screen and (min-width: 701px) {
-  #oversiktDiv {
+  #oversiktTable {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
   }
 
-  .columnElement {
-    border-color: blue;
-    border-width: 1px;
+  .tableElement {
+    border-bottom: 1px lightgray solid;
+    display: flex;
   }
+
+  .tableElement td {
+    flex-grow: 1;
+    flex-basis: 30%;
+  }
+
+
 }
 
 .kommunenummer {

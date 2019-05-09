@@ -11,22 +11,22 @@ const hentOversikt = (befolkning) => {
     return ret;
 };
 const putOversikt = (befolkning) => {
-    let overviewDiv = document.getElementById('oversiktDiv');
+    let overviewTable = document.getElementById('oversiktTable');
     let oversikt = hentOversikt(befolkning);
     let i = 1;
     for (let kommune in oversikt) {
         let kommuneObject = oversikt[kommune];
-        let columnDiv = document.createElement("div");
-        columnDiv.className = "columnElement";
+        let tableElement = overviewTable.insertRow();
+        tableElement.className = "tableElement";
 
-        let kommuneNavn = document.createElement("div");
+        let kommuneNavn = tableElement.insertCell();
         kommuneNavn.innerHTML = "<p>" + kommune + "</p>"; 
         
-        let kommuneNr = document.createElement("div");
+        let kommuneNr = tableElement.insertCell();
         kommuneNr.innerHTML = "<p>" + kommuneObject.kommunenummer + "</p>"; 
         kommuneNr.className = "kommunenummer";
 
-        let befolkningsTall = document.createElement("div");
+        let befolkningsTall = tableElement.insertCell();
         befolkningsTall.innerHTML = "<p>" + kommuneObject.befolkningstall + "</p>"; 
 
         //console.log(kommune);
@@ -35,9 +35,9 @@ const putOversikt = (befolkning) => {
         //kommuneNavn.innerHTML = kommune;
         //kommuneNR.innerHTML = komObj.kommunenummer;
         //befolkningsTall.innerHTML = komObj.befolkningstall;
-        columnDiv.appendChild(kommuneNavn);
-        columnDiv.appendChild(kommuneNr);
-        columnDiv.appendChild(befolkningsTall);
-        overviewDiv.appendChild(columnDiv);
+        //tableElement.appendChild(kommuneNavn);
+        //tableElement.appendChild(kommuneNr);
+        //tableElement.appendChild(befolkningsTall);
+        //overviewTable.appendChild(tableElement);
     }
 };
