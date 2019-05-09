@@ -40,7 +40,15 @@ li a:hover {
   background-color: #111;
 }
 
-@media screen and (min-width: 740px) {}
+@media screen and (min-width: 740px) {
+  li a {
+    font-size: 16px;
+  }
+
+  footer p {
+    font-size: 16px;
+  }
+}
 
 
 input {
@@ -53,7 +61,6 @@ input {
   margin: 20px auto;
   padding-bottom: 10%;
   table-layout: auto;
-
 }*/
 
 #columnContainer {
@@ -83,7 +90,7 @@ footer {
   display: none;
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 700px) {
   #oversiktTable {
     display: flex;
     flex-direction: column;
@@ -103,55 +110,31 @@ footer {
     flex-direction: column;
   }
 
-  #topRow {
-    display: none;
+}
+
+@media screen and (min-width: 701px) {
+  #oversiktTable {
+    display: flex;
+    flex-direction: column;
   }
 
   .tableElement {
-    border-width: thin;
-    border-color: black;
-    border-top-width: medium;
+    border-bottom: 1px lightgray solid;
+    display: flex;
   }
+
+  .tableElement td {
+    flex-grow: 1;
+    flex-basis: 30%;
+  }
+
+
 }
-
-
-#oversiktTable {
-  display: flex;
-  flex-direction: column;
-}
-
-.tableElement {
-  border-bottom: 1px lightgray solid;
-  display: flex;
-}
-
-.tableElement td {
-  flex-grow: 1;
-  flex-basis: 30%;
-}
-
-li a {
-  font-size: 16px;
-}
-
-footer p {
-  font-size: 16px;
-}
-
-.infoTab {
-  display: none;
-}
-
-
 
 .sammenligningTable {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-}
-
-#topRow {
-  font-weight: bold;
 }
 
 .kommunenummer {
