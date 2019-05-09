@@ -56,13 +56,13 @@ input {
   border-color: #333;
 }
 
-table {
+/*table {
   width: 100%;
   margin: 20px auto;
   padding-bottom: 10%;
   table-layout: auto;
 
-}
+}*/
 
 #columnContainer {
   display: flex;
@@ -99,18 +99,24 @@ footer {
     justify-content: flex-start;
   }
 
+  .sammenligningTable {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
   .tableElement {
     display: flex;
     border-bottom: 1px lightgray solid;
     flex-direction: column;
   }
+
 }
 
 @media screen and (min-width: 701px) {
   #oversiktTable {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
   }
 
   .tableElement {
@@ -124,6 +130,12 @@ footer {
   }
 
 
+}
+
+.sammenligningTable {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .kommunenummer {

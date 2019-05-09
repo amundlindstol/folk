@@ -27,7 +27,7 @@ function getInfo(number, data, oneOrTwo) {
     for (let kommune in data) {  // 'live' search through the data
         if (data.hasOwnProperty(kommune) && String(data[kommune].kommunenummer).startsWith(number)) {
             const tableElement = document.createElement('tr');
-            tableElement.innerHTML = kommune + "    " + data[kommune].kommunenummer;
+            tableElement.innerHTML = "<strong>" +  kommune + "    " + data[kommune].kommunenummer + "</strong>"; // TODO: Shouldn't always be strong?
             kommuneTable.appendChild(tableElement);
             lastKommuneNavn = kommune;
             count++;
