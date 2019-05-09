@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 
-const hentDetaljer = (befolkning) => {
+const hentDetaljer = (befolkning, utdanning, sysselsetting) => {
     var nummer = document.getElementById('kommuneNr').value;
     var kommune = befolkning.getKommuneByID(nummer);
     var dom = document.getElementById('detaljObjekt');

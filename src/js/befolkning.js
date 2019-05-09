@@ -2,12 +2,12 @@
 
 //Skjelett til resterende klasser som behandler data:
 class Befolkning {
-  constructor(url) {
+  constructor(url, utdanning, sysselsetting) {
     this.onload = () => {
       this.data = this.dataAccessor.data;
       enableNavigationButtons();
       removeLoadingMessage();
-      putOversikt(this);
+      putOversikt(this, utdanning, sysselsetting);
     };
     this.url = url;
     this.dataAccessor = new Data(url);
