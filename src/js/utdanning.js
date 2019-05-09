@@ -1,10 +1,15 @@
 //Skjelett til resterende klasser som behandler data:
 class Utdanning {
   constructor(url) {
-    this.onload = null; //skal potensielt tilordnes en funksjon
     this.url = url;
     this.dataAccessor = new Data(url);
+    this.onload = () => {
+      this.data = this.dataAccessor.data;
+
+    };
+    this.dataAccessor = new Data(url);
     this.load();
+
     this.getHigherEducation();
   }
 
@@ -71,6 +76,5 @@ class Utdanning {
 
   load() {
     this.dataAccessor.accessData();
-    this.data = this.dataAccessor.data;
   }
 }
