@@ -58,6 +58,14 @@ class Utdanning {
     }
     return ret;
   }
+<<<<<<< HEAD
+
+  //03a + 04a (høyere utdanning)
+  //uferdig metode
+  getHigherEducation(kommune) {
+    return ((this.getLastEducation(this.data[kommune], "03a"))+
+    (this.getLastEducation(this.data[kommune], "04a"))).toFixed(2);
+=======
   //01 Grunnskole
   //02a VGS
   //11 Fagskole
@@ -82,6 +90,7 @@ class Utdanning {
     }
     ret += 0+(kommune["04a"].Kvinner[newest] + kommune["04a"].Menn[newest])/2;
     return ret.toFixed(2);
+>>>>>>> 2e158dbe30dc53e14925e045af9261c285d971af
   }
 
   getLastEducation(kommune, type) {
