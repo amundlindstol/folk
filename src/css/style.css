@@ -41,7 +41,15 @@ li a:hover {
   background-color: #111;
 }
 
-@media screen and (min-width: 740px) {}
+@media screen and (min-width: 740px) {
+  li a {
+    font-size: 16px;
+  }
+
+  footer p {
+    font-size: 16px;
+  }
+}
 
 
 input {
@@ -54,7 +62,6 @@ input {
   margin: 20px auto;
   padding-bottom: 10%;
   table-layout: auto;
-
 }*/
 
 #columnContainer {
@@ -85,7 +92,7 @@ footer {
   display: none;
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 700px) {
   #oversiktTable {
     display: flex;
     flex-direction: column;
@@ -101,7 +108,8 @@ footer {
 
   .tableElement {
     display: flex;
-    border-bottom: 1px lightgray solid;
+    border-top: 1px gray solid;
+    border-bottom: 1px gray solid;
     flex-direction: column;
   }
 
@@ -109,23 +117,23 @@ footer {
     display: none;
   }
 
-  .tableElement {
-    border-width: thin;
-    border-color: black;
-    border-top-width: medium;
+  .infoTab {
+    display: inline-table;
   }
 
-  #kommuneEnText, #kommuneToText {
+  #kommuneEnText,
+  #kommuneToText {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
-  
-  #kommuneEnData, #kommuneToData {
+
+  #kommuneEnData,
+  #kommuneToData {
     display: flex;
     flex-direction: row;
     justify-content: center;
   }
-  
+
   #MenElements {
     background-color: rgb(243, 243, 243);
   }
@@ -137,37 +145,47 @@ footer {
   }
 }
 
+@media screen and (min-width: 700px) {
+  .sammenligningTable {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 
-#oversiktTable {
-  display: flex;
-  flex-direction: column;
+  #kommuneEnText {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #kommuneToText {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .infoTab {
+    display: none;
+  }
+
+  #topRow {
+    font-weight: bold;
+  }
+
+  #oversiktTable {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tableElement {
+    border-bottom: 1px lightgray solid;
+    display: flex;
+  }
+
+  .tableElement td {
+    flex-grow: 1;
+    flex-basis: 30%;
+  }
 }
 
-.tableElement {
-  border-bottom: 1px lightgray solid;
-  display: flex;
-}
-
-.tableElement td {
-  flex-grow: 1;
-  flex-basis: 30%;
-}
-
-li a {
-  font-size: 16px;
-}
-
-footer p {
-  font-size: 16px;
-}
-
-.infoTab {
-  display: none;
-}
-
-#topRow {
-  font-weight: bold;
-}
 
 .kommunenummer {
   background-color: rgb(243, 243, 243);

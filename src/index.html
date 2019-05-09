@@ -45,7 +45,7 @@
                 <td>Kommunenummer</td>
                 <td>Befolkning</td>
             </tr>
-            <tr class="tableElement"></tr>
+            <tr style="display: none;"></tr>
         </table>
     </div>
 
@@ -60,14 +60,19 @@
         <p>
             <span id=detaljObjekt></span>
         </p>
+        <div class="detaljerTableContainer">
+            <table id="detaljerTable"></table>
+        </div>
     </div>
 
     <!-- Sammenligning av kommuner -->
     <div id="sammenligning" class="innhold" hidden>
         <h3>Sammenligning</h3>
+        <p> Dette er en historisk sammenliging av to kommuner basert på sysselsetting for menn og kvinner. <br>
+          Oppgi to kommunenummer og ønsket informasjon vil genereres automatisk.
         <div class="">
             <input type="text" id="kommuneEn">
-            <input type="text" id="kommuneTo">
+            <input type="text" id="kommuneTo"> <br><br>
         </div>
         <div class="sammenligningTable">
             <div id="kommuneEnText"></div>
@@ -81,7 +86,6 @@
         <!-- hidden -->
         <img src="https://media1.tenor.com/images/a6a6686cbddb3e99a5f0b60a829effb3/tenor.gif?itemid=7427055">
     </div>
-
 
     <script type="text/javascript" src="js/data.js"></script>
     <script type="text/javascript" src="js/utdanning.js"></script>

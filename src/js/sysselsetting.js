@@ -23,42 +23,54 @@ class Sysselsetting {
           newest = kvinner;
         }
       }
-      return 0+(this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest])/2;
+      var ret = 0+(this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest])/2;
+      return ret.toFixed(2);
     }
 
-    getInfo() {
-        // TODO: Implementer.
+    getInfo(nummer) {
+      for (var kommune in this.data) {
+        if (nummer == this.data[kommune].kommunenummer) {
+          var obj = this.data[kommune];
+          obj.name = kommune;
+          return obj;
+        }
+      }
     }
 
-    //Fra oppgbeskrivelse
     /**
      * Returnerer listen av alle kommunenavn som fremtrer i datasettene.
      *
      * @return names
      */
 
-    getNames() {}
+    getNames() {
+      var elementer = this.data;
+      var ret = [];
+      var count = 0;
+      for (var kommune in elementer) {
+        ret[count++] = kommune;
+      }
+      return ret;
+    }
     /**
      * Returnerer listen av kommunenummer som fremtrer i datasettene.
      *
      * @return numbers
      */
-    getIDs() {}
+    getIDs() {
+      var elementer = this.data;
+      var ret = [];
+      var count = 0;
+      for (var kommune in elementer) {
+        ret[count++] = String(elementer[kommune].kommunenummer);
+      }
+      return ret;
+    }
 
     /**
      * Klargjør og sender en forespørsel om å laste ned datasettet.
-     * To do: "Dersom objektet har egenskapet onload.."
      */
     load() {
         this.dataAccessor.accessData(this.onload);
     }
-
-
 }
-
-/**
-var employment = new Data("http://wildboy.uib.no/~tpe056/folk/100145.json");
-employment.load();
-var education = new Data("http://wildboy.uib.no/~tpe056/folk/85432.json");
-education.load();
-*/
