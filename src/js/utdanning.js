@@ -58,9 +58,12 @@ class Utdanning {
     }
     return ret;
   }
-
-  //03a + 04a (høyere utdanning)
-  //uferdig metode
+  //01 Grunnskole
+  //02a VGS
+  //11 Fagskole
+  //03a Høyere utdanning bachelor
+  //04a Høyere utdanning master
+  //09a Ingen eller uvist utdanning
   getHigherEducation(kommune) {
     kommune = this.data[kommune];
     var ret = 0;
