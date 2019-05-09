@@ -20,13 +20,13 @@ const putOversikt = (befolkning) => {
         tableElement.className = "tableElement";
 
         let kommuneNavn = tableElement.insertCell();
-        kommuneNavn.innerHTML = "<p>" + kommune + "</p>"; 
-        
+        kommuneNavn.innerHTML = "<p><span class='infoTab'>Kommune: </span>" + kommune + "</p>";
+
         let kommuneNr = tableElement.insertCell();
-        kommuneNr.innerHTML = "<p>" + kommuneObject.kommunenummer + "</p>"; 
+        kommuneNr.innerHTML = "<p><span class='infoTab'>Kommunenummer: </span>" + kommuneObject.kommunenummer + "</p>";
         kommuneNr.className = "kommunenummer";
 
         let befolkningsTall = tableElement.insertCell();
-        befolkningsTall.innerHTML = "<p>" + kommuneObject.befolkningstall + "</p>"; 
+        befolkningsTall.innerHTML = "<p><span class='infoTab'>Befolkning: </span>" + kommuneObject.befolkningstall + "</p>";
     }
 };
