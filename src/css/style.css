@@ -41,10 +41,7 @@ li a:hover {
   background-color: #111;
 }
 
-#Years tbody, #MenElements tbody, #WomenElements tbody, #BothSexesElements tbody{
-  display: flex;
-  flex-direction: row;
-}
+
 
 @media screen and (min-width: 740px) {
   li a {
@@ -97,6 +94,43 @@ footer {
   display: none;
 }
 
+@media screen and (min-width: 701px) {
+
+  #Years tbody,
+  #MenElements tbody,
+  #WomenElements tbody,
+  #BothSexesElements tbody {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #kommuneEnData,
+  #kommuneToData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  #kommuneEnData>table,
+  #kommuneToData>table {
+    margin: auto 10%;
+  }
+
+  #kommuneEnText,
+  #kommuneToText {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sammenligningTable {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+}
+
+
 @media screen and (max-width: 700px) {
   #oversiktTable {
     display: flex;
@@ -145,17 +179,9 @@ footer {
   }
 }
 
-#kommuneEnText,
-#kommuneToText {
-  display: flex;
-  flex-direction: column;
-}
 
-.sammenligningTable {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
+
+
 
 
 .infoTab {
@@ -181,14 +207,7 @@ footer {
   flex-basis: 30%;
 }
 
-#kommuneEnData,
-#kommuneToData {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
 
 .kommunenummer {
   background-color: rgb(243, 243, 243);
 }
-

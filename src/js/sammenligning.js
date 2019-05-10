@@ -24,7 +24,10 @@ function displayTableOfKommune(kommuneData, oneOrTwo) {
     let years = Object.keys(kommuneData.Kvinner);
     let tableOfYears = document.createElement('table');
     tableOfYears.id = 'Years';
-
+    
+    let colgroup = document.createElement('colgroup');
+    let col = document.createElement('col');
+    
 
     tableOfYears.innerHTML = '<strong>År</strong>';
     for (const year of years) {
