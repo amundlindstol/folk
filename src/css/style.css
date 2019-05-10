@@ -94,7 +94,7 @@ footer {
   display: none;
 }
 
-@media screen and (min-width: 701px) {
+@media screen and (min-width: 741px) {
 
   #Years tbody,
   #MenElements tbody,
@@ -131,7 +131,7 @@ footer {
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 740px) {
   #oversiktTable {
     display: flex;
     flex-direction: column;
@@ -210,9 +210,6 @@ footer {
 
 .kommunenummer {
   background-color: rgb(243, 243, 243);
-<<<<<<< HEAD
-}
-=======
 }
 
 
@@ -220,4 +217,3 @@ footer {
   display: flex;
   justify-content: center;
 }
->>>>>>> d201013bf98a57f832080c0fa6c8041d70c79464
