@@ -116,10 +116,27 @@ footer {
     margin: auto 10%;
   }
 
+  #kommuneEnData>table td,
+  #kommuneToData>table td {
+    padding: 0.5em;
+  }
+
+  #kommuneEnData>table tr,
+  #kommuneToData>table tr {
+    width: 4em;
+    border-right: 1px gray solid;
+    border-left: 1px gray solid;    
+  }
+
+
   #kommuneEnText,
   #kommuneToText {
     display: flex;
     flex-direction: column;
+  }
+
+  #kommuneEnText {
+    padding-bottom: 5%;
   }
 
   .sammenligningTable {
@@ -127,6 +144,8 @@ footer {
     flex-direction: column;
     justify-content: space-evenly;
   }
+
+
 
 }
 
