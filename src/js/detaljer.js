@@ -15,17 +15,36 @@ function generateDom(dom, kommune) {
       "Befolkning: " + befolkning.getLastPopulationString(kommune.name) + "<br>" +
       "Sysselsetting: "+ sysselsetting.getLastEmployment(kommune.name)+"% <br>" +
       "Høyere utdanning: "+ utdanning.getHigherEducation(kommune.name)+"% (" +
-       antallUtdannede + " personer)";
+       antallUtdannede + " personer) <br>" +
+       "<table id='detaljerTable'>" +
+       "</able>";
+       generateTable(kommune.name);
+}
 
 
-  /**
-   * Kommunens navn
-   * Kommunenr
-   * Siste befolkningstall
-   * Siste Sysselsetting
-   * Siste Utdanning
-   *
-   * Tabell for utvikling i alle 3 datasett
-   *
-   */
+function generateTable(kommune) {
+  var table = document.getElementById('detaljerTable');
+  var topRow = table.insertRow();
+  var yearCell = topRow.insertCell();
+  var populationCell = topRow.insertCell();
+  var employmentCell = topRow.insertCell();
+  var educationCell = topRow.insertCell();
+  yearCell.innerHTML = "År";
+  populationCell.innerHTML = "Befolkning";
+  employmentCell.innerHTML = "Sysselsetting";
+  educationCell.innerHTML = "Utdanning";
+  var old = befolkning.getOldestDate(kommune);
+  var newest = befolkning.getNewestDate(kommune);
+  while (old < newest) {
+      var newRow = table.insertRow();
+      var year = newRow.insertCell();
+      var population = newRow.insertCell();
+      var employment = newRow.insertCell();
+      var education = newRow.insertCell();
+      year.innerHTML = ""+old;
+      population.innerHTML = befolkning.getPopulation(kommune, old);
+      employment.innerHTML = sysselsetting.getEmployment(kommune, old)+"%";
+      education.innerHTML = utdanning.getHigherEducationByYear(kommune, old)+"%";
+      old++;
+  }
 }

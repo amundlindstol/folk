@@ -69,6 +69,14 @@ class Utdanning {
     (this.getLastEducation(this.data[kommune], "04a"))).toFixed(2);
   }
 
+  getHigherEducationByYear(kommune, year) {
+    return ((this.getLastEducation(this.data[kommune], "03a", year))+
+    (this.getLastEducation(this.data[kommune], "04a", year))).toFixed(2);
+  }
+  getEducation(kommune, type, year) {
+    return 0+(kommune[type].Kvinner[year] + kommune[type].Menn[year])/2;
+  }
+
   getLastEducation(kommune, type) {
     var newest = 0;
     for (var kvinner in kommune[type].Kvinner) {

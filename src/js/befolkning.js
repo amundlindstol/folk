@@ -7,7 +7,7 @@ class Befolkning {
       this.data = this.dataAccessor.data;
       enableNavigationButtons();
       removeLoadingMessage();
-      putOversikt(this, utdanning, sysselsetting);
+      putOversikt(this);
     };
     this.url = url;
     this.dataAccessor = new Data(url);
@@ -72,22 +72,36 @@ class Befolkning {
   }
 
   getLastPopulation(kommune) {
-    var newest = 0;
-    for (var kvinner in this.data[kommune].Kvinner) {
-      if (Number(kvinner) > newest) {
-        newest = kvinner;
-      }
-    }
+    var newest = this.getNewestDate(kommune);
     return this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest];
   }
 
-  getLastPopulationString(kommune) {
+  getPopulation(kommune, year) {
+    return this.data[kommune].Kvinner[year] + this.data[kommune].Menn[year];
+  }
+
+  getOldestDate(kommune) {
+    var old = 3000;
+    for (var kvinner in this.data[kommune].Kvinner) {
+      if (Number(kvinner) < old) {
+        old = kvinner;
+      }
+    }
+    return old;
+  }
+
+  getNewestDate(kommune) {
     var newest = 0;
     for (var kvinner in this.data[kommune].Kvinner) {
       if (Number(kvinner) > newest) {
         newest = kvinner;
       }
     }
+    return newest;
+  }
+
+  getLastPopulationString(kommune) {
+    var newest = this.getNewestDate(kommune);
     return "" + (this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest]) + " (" + newest + ")";
   }
 

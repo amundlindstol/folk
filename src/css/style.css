@@ -192,3 +192,8 @@ footer {
   background-color: rgb(243, 243, 243);
 }
 
+
+#detaljerTable {
+  display: flex;
+  justify-content: center;
+}
