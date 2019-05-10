@@ -24,12 +24,14 @@ function displayTableOfKommune(kommuneData, oneOrTwo) {
     let years = Object.keys(kommuneData.Kvinner);
     let tableOfYears = document.createElement('table');
     tableOfYears.id = 'Years';
+    tableOfYears.innerHTML = '<strong>År</strong>';
     
     let colgroup = document.createElement('colgroup');
     let col = document.createElement('col');
-    
+    col.className = 'compareTableElements';
+    colgroup.appendChild(col);
+    tableOfYears.appendChild(colgroup);
 
-    tableOfYears.innerHTML = '<strong>År</strong>';
     for (const year of years) {
         let yearsRow = tableOfYears.insertRow();
         let yearCell = yearsRow.insertCell();
@@ -42,6 +44,12 @@ function displayTableOfKommune(kommuneData, oneOrTwo) {
     let tableOfWomen = document.createElement('table');
     tableOfWomen.innerHTML = '<strong>Kvinner</strong>';
     tableOfWomen.id = 'WomenElements';
+
+    colgroup = document.createElement('colgroup');
+    col = document.createElement('col');
+    col.className = 'compareTableElements';
+    colgroup.appendChild(col);
+    tableOfWomen.appendChild(colgroup);
 
 
     for (const employedWomen of employedWomenPerYear) {
@@ -56,6 +64,13 @@ function displayTableOfKommune(kommuneData, oneOrTwo) {
     let tableOfMen = document.createElement('table');
     tableOfMen.innerHTML = '<strong>Menn</strong>';
     tableOfMen.id = 'MenElements';
+    
+    colgroup = document.createElement('colgroup');
+    col = document.createElement('col');
+    col.className = 'compareTableElements';
+    colgroup.appendChild(col);
+    tableOfMen.appendChild(colgroup);
+
 
     for (const employedMen of employedMenPerYear) {
         let employedMenRow = tableOfMen.insertRow();
@@ -69,6 +84,12 @@ function displayTableOfKommune(kommuneData, oneOrTwo) {
     let tableOfBothSexes = document.createElement('table');
     tableOfBothSexes.innerHTML = '<strong>Begge kjønn</strong>';
     tableOfBothSexes.id = 'BothSexesElements';
+ 
+    colgroup = document.createElement('colgroup');
+    col = document.createElement('col');
+    col.className = 'compareTableElements';
+    colgroup.appendChild(col);
+    tableOfBothSexes.appendChild(colgroup);
 
 
     for (const employedBothSexes of employedBothSexesPerYear) {
