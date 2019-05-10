@@ -210,4 +210,14 @@ footer {
 
 .kommunenummer {
   background-color: rgb(243, 243, 243);
+<<<<<<< HEAD
 }
+=======
+}
+
+
+#detaljerTable {
+  display: flex;
+  justify-content: center;
+}
+>>>>>>> d201013bf98a57f832080c0fa6c8041d70c79464

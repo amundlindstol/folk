@@ -17,14 +17,34 @@ class Sysselsetting {
     * en kommune
     */
     getLastEmployment(kommune) {
+      var newest = this.getNewestDate(kommune)
+      var ret = 0+(this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest])/2;
+      return ret.toFixed(2);
+    }
+
+    getEmployment(kommune, year) {
+      var ret = 0+(this.data[kommune].Kvinner[year] + this.data[kommune].Menn[year])/2;
+      return ret.toFixed(2);
+    }
+
+    getNewestDate(kommune) {
       var newest = 0;
       for (var kvinner in this.data[kommune].Kvinner) {
         if (Number(kvinner) > newest) {
           newest = kvinner;
         }
       }
-      var ret = 0+(this.data[kommune].Kvinner[newest] + this.data[kommune].Menn[newest])/2;
-      return ret.toFixed(2);
+      return newest;
+    }
+
+    getOldestDate(kommune) {
+      var old = 3000;
+      for (var kvinner in this.data[kommune].Kvinner) {
+        if (Number(kvinner) < old) {
+          old = kvinner;
+        }
+      }
+      return old;
     }
 
     getInfo(nummer) {
