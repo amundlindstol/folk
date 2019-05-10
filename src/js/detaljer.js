@@ -15,7 +15,7 @@ function generateDom(dom, kommune) {
       "Befolkning: " + befolkning.getLastPopulationString(kommune.name) + "<br>" +
       "Sysselsetting: "+ sysselsetting.getLastEmployment(kommune.name)+"% <br>" +
       "Høyere utdanning: "+ utdanning.getHigherEducation(kommune.name)+"% (" +
-       antallUtdannede + " personer) <br>" +
+       antallUtdannede + " personer) <br><br>" +
        "<table id='detaljerTable'>" +
        "</able>";
        generateTable(kommune.name);
@@ -25,6 +25,7 @@ function generateDom(dom, kommune) {
 function generateTable(kommune) {
   var table = document.getElementById('detaljerTable');
   var topRow = table.insertRow();
+  topRow.className = "topRow";
   var yearCell = topRow.insertCell();
   var populationCell = topRow.insertCell();
   var employmentCell = topRow.insertCell();
@@ -35,7 +36,7 @@ function generateTable(kommune) {
   educationCell.innerHTML = "Utdanning";
   var old = befolkning.getOldestDate(kommune);
   var newest = befolkning.getNewestDate(kommune);
-  while (old < newest) {
+  while (old <= newest) {
       var newRow = table.insertRow();
       var year = newRow.insertCell();
       var population = newRow.insertCell();

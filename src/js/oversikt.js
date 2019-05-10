@@ -13,7 +13,6 @@ const hentOversikt = (befolkning) => {
 const putOversikt = (befolkning) => {
     let overviewTable = document.getElementById('oversiktTable');
     let oversikt = hentOversikt(befolkning);
-    console.log(oversikt);
     let i = 1;
     for (let kommune in oversikt) {
         let kommuneObject = oversikt[kommune];
